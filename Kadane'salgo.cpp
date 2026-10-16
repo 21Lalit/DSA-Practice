@@ -1,23 +1,25 @@
 #include<iostream>
 using namespace std;
 
-int maxSum = INT_MIN;
-int currentSum = 0;
+int CurrentSum = 0;
+int MaxSum = 0;
 
-void MaXSubSum (int *arr, int n) {
+void MaxSubSum(int *arr, int n) {
     for(int i=0; i<n; i++) {
-        currentSum += arr[i];
-        maxSum = max(maxSum, currentSum);
-        if(currentSum<0) {
-            currentSum = 0;
+        CurrentSum += arr[i];
+        MaxSum = max(CurrentSum, MaxSum);
+        if(CurrentSum<0) {
+            CurrentSum = 0;
         }
     }
-    cout << "Maximum Subarray Sum is: " << maxSum;
+    cout << "Maximum sub-array sum is: " << MaxSum<<endl;
 }
 
 int main() {
-    int arr[6] = {1,-2,3,4,-5,6};
+    int arr[6] = {-2, 1, -3, 4, -1, 2};
     int n = sizeof(arr)/sizeof(int);
+    
+    MaxSubSum(arr, n);
 
-    MaXSubSum(arr, n);
+    return 0;
 }
